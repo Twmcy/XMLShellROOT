@@ -7,6 +7,10 @@
 
     <string name="app_name">XMLROOT</string>
     <string name="btn_exit">退出</string>
+    <string name="agreement_title">协议标题</string>
+<string name="agreement_message">协议内容</string>
+<string name="agree">同意</string>
+<string name="cancel">取消</string>
     <string name="float_monitor_tips">双击悬浮窗即可关闭，或按住拖动调整位置</string>
     <string name="permission_float">请授权显示悬浮窗权限！</string>
     <string name="please_wait">请稍等</string>
