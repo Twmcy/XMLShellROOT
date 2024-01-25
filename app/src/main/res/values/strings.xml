@@ -11,7 +11,7 @@
     <string name="permission_float">请授权显示悬浮窗权限！</string>
     <string name="please_wait">请稍等</string>
     <string name="title_activity_action_page">功能分页</string>
-
+    <string name="title_activity_about_page">Your About Page Title</string>
     <string name="card_content">TEST-About</string>
     <string name="appcenter_switch">App Center 统计开关</string>
     <string name="author_name">XMLROOT</string>
