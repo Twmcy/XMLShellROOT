@@ -166,150 +166,150 @@ class MainActivity : AppCompatActivity() {
                 
                 
                 if (favorites1 != null && favorites1.size > 0) {
-                    updatefavorites1Tab(favorites1, favoriteConfig1)
+                    updateFavorites1Tab(favorites1, favoriteConfig1)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites1), ContextCompat.getDrawable(this, R.drawable.tab_favorites1)!!, R.id.main_tabhost_3)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_3.visibility = View.GONE
                 }
 
                 if (favorites2 != null && favorites2.size > 0) {
-                    updatefavorites2Tab(favorites2, favoriteConfig2)
+                    updateFavorites2Tab(favorites2, favoriteConfig2)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites2), ContextCompat.getDrawable(this, R.drawable.tab_favorites2)!!, R.id.main_tabhost_4)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_4.visibility = View.GONE
                 }
 
                 if (favorites3 != null && favorites3.size > 0) {
-                    updatefavorites3Tab(favorites3, favoriteConfig3)
+                    updateFavorites3Tab(favorites3, favoriteConfig3)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites3), ContextCompat.getDrawable(this, R.drawable.tab_favorites3)!!, R.id.main_tabhost_5)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_5.visibility = View.GONE
                 }
 
                 if (favorites4 != null && favorites4.size > 0) {
-                    updatefavorites4Tab(favorites4, favoriteConfig4)
+                    updateFavorites4Tab(favorites4, favoriteConfig4)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites4), ContextCompat.getDrawable(this, R.drawable.tab_favorites4)!!, R.id.main_tabhost_6)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_6.visibility = View.GONE
                 }
 
                 if (favorites5 != null && favorites5.size > 0) {
-                    updatefavorites5Tab(favorites5, favoriteConfig5)
+                    updateFavorites5Tab(favorites5, favoriteConfig5)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites5), ContextCompat.getDrawable(this, R.drawable.tab_favorites5)!!, R.id.main_tabhost_7)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_7.visibility = View.GONE
                 }
 
                 if (favorites6 != null && favorites6.size > 0) {
-                    updatefavorites6Tab(favorites6, favoriteConfig6)
+                    updateFavorites6Tab(favorites6, favoriteConfig6)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites6), ContextCompat.getDrawable(this, R.drawable.tab_favorites6)!!, R.id.main_tabhost_8)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_8.visibility = View.GONE
                 }
 
                 if (favorites7 != null && favorites7.size > 0) {
-                    updatefavorites7Tab(favorites7, favoriteConfig7)
+                    updateFavorites7Tab(favorites7, favoriteConfig7)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites7), ContextCompat.getDrawable(this, R.drawable.tab_favorites7)!!, R.id.main_tabhost_9)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_9.visibility = View.GONE
                 }
 
                 if (favorites8 != null && favorites8.size > 0) {
-                    updatefavorites8Tab(favorites8, favoriteConfig8)
+                    updateFavorites8Tab(favorites8, favoriteConfig8)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites8), ContextCompat.getDrawable(this, R.drawable.tab_favorites8)!!, R.id.main_tabhost_10)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_10.visibility = View.GONE
                 }
 
                 if (favorites9 != null && favorites9.size > 0) {
-                    updatefavorites9Tab(favorites9, favoriteConfig9)
+                    updateFavorites9Tab(favorites9, favoriteConfig9)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites9), ContextCompat.getDrawable(this, R.drawable.tab_favorites9)!!, R.id.main_tabhost_11)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_11.visibility = View.GONE
                 }
 
                 if (favorites10 != null && favorites10.size > 0) {
-                    updatefavorites10Tab(favorites10, favoriteConfig10)
+                    updateFavorites10Tab(favorites10, favoriteConfig10)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites10), ContextCompat.getDrawable(this, R.drawable.tab_favorites10)!!, R.id.main_tabhost_12)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_12.visibility = View.GONE
                 }
 
                 if (favorites11 != null && favorites11.size > 0) {
-                    updatefavorites11Tab(favorites11, favoriteConfig11)
+                    updateFavorites11Tab(favorites11, favoriteConfig11)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites11), ContextCompat.getDrawable(this, R.drawable.tab_favorites11)!!, R.id.main_tabhost_13)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_13.visibility = View.GONE
                 }
 
                 if (favorites12 != null && favorites12.size > 0) {
-                    updatefavorites12Tab(favorites12, favoriteConfig12)
+                    updateFavorites12Tab(favorites12, favoriteConfig12)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites12), ContextCompat.getDrawable(this, R.drawable.tab_favorites12)!!, R.id.main_tabhost_14)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_14.visibility = View.GONE
                 }
 
                 if (favorites13 != null && favorites13.size > 0) {
-                    updatefavorites13Tab(favorites13, favoriteConfig13)
+                    updateFavorites13Tab(favorites13, favoriteConfig13)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites13), ContextCompat.getDrawable(this, R.drawable.tab_favorites13)!!, R.id.main_tabhost_15)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_15.visibility = View.GONE
                 }
 
                 if (favorites14 != null && favorites14.size > 0) {
-                    updatefavorites14Tab(favorites14, favoriteConfig14)
+                    updateFavorites14Tab(favorites14, favoriteConfig14)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites14), ContextCompat.getDrawable(this, R.drawable.tab_favorites14)!!, R.id.main_tabhost_16)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_16.visibility = View.GONE
                 }
 
                 if (favorites15 != null && favorites15.size > 0) {
-                    updatefavorites15Tab(favorites15, favoriteConfig15)
+                    updateFavorites15Tab(favorites15, favoriteConfig15)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites15), ContextCompat.getDrawable(this, R.drawable.tab_favorites15)!!, R.id.main_tabhost_17)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_17.visibility = View.GONE
                 }
 
                 if (favorites16 != null && favorites16.size > 0) {
-                    updatefavorites16Tab(favorites16, favoriteConfig16)
+                    updateFavorites16Tab(favorites16, favoriteConfig16)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites16), ContextCompat.getDrawable(this, R.drawable.tab_favorites16)!!, R.id.main_tabhost_18)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_18.visibility = View.GONE
                 }
 
                 if (favorites17 != null && favorites17.size > 0) {
-                    updatefavorites17Tab(favorites17, favoriteConfig17)
+                    updateFavorites17Tab(favorites17, favoriteConfig17)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites17), ContextCompat.getDrawable(this, R.drawable.tab_favorites17)!!, R.id.main_tabhost_19)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_19.visibility = View.GONE
                 }
 
                 if (favorites18 != null && favorites18.size > 0) {
-                    updatefavorites18Tab(favorites18, favoriteConfig18)
+                    updateFavorites18Tab(favorites18, favoriteConfig18)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites18), ContextCompat.getDrawable(this, R.drawable.tab_favorites18)!!, R.id.main_tabhost_20)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_20.visibility = View.GONE
                 }
 
                 if (favorites19 != null && favorites19.size > 0) {
-                    updatefavorites19Tab(favorites19, favoriteConfig19)
+                    updateFavorites19Tab(favorites19, favoriteConfig19)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites19), ContextCompat.getDrawable(this, R.drawable.tab_favorites19)!!, R.id.main_tabhost_21)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_21.visibility = View.GONE
                 }
 
                 if (favorites20 != null && favorites20.size > 0) {
-                    updatefavorites20Tab(favorites20, favoriteConfig20)
+                    updateFavorites20Tab(favorites20, favoriteConfig20)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites20), ContextCompat.getDrawable(this, R.drawable.tab_favorites20)!!, R.id.main_tabhost_22)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_22.visibility = View.GONE
                 }
 
                 if (favorites21 != null && favorites21.size > 0) {
-                    updatefavorites21Tab(favorites21, favoriteConfig21)
+                    updateFavorites21Tab(favorites21, favoriteConfig21)
                     tabIconHelper.newTabSpec(getString(R.string.tab_favorites21), ContextCompat.getDrawable(this, R.drawable.tab_favorites21)!!, R.id.main_tabhost_23)
                 } else {
-                    main_tabhost_2.visibility = View.GONE
+                    main_tabhost_23.visibility = View.GONE
                 }
 
             }
@@ -467,7 +467,7 @@ class MainActivity : AppCompatActivity() {
             val favorites1 = getItems(favoriteConfig1)
             favorites1?.run {
                 handler.post {
-                    updatefavorites1Tab(this, favoriteConfig1)
+                    updateFavorites1Tab(this, favoriteConfig1)
                 }
             }
         }).start()
@@ -479,7 +479,7 @@ class MainActivity : AppCompatActivity() {
             val favorites2 = getItems(favoriteConfig2)
             favorites2?.run {
                 handler.post {
-                    updatefavorites2Tab(this, favoriteConfig2)
+                    updateFavorites2Tab(this, favoriteConfig2)
                 }
             }
         }).start()
@@ -491,7 +491,7 @@ class MainActivity : AppCompatActivity() {
             val favorites3 = getItems(favoriteConfig3)
             favorites3?.run {
                 handler.post {
-                    updatefavorites3Tab(this, favoriteConfig3)
+                    updateFavorites3Tab(this, favoriteConfig3)
                 }
             }
         }).start()
@@ -503,7 +503,7 @@ class MainActivity : AppCompatActivity() {
             val favorites4 = getItems(favoriteConfig4)
             favorites4?.run {
                 handler.post {
-                    updatefavorites4Tab(this, favoriteConfig4)
+                    updateFavorites4Tab(this, favoriteConfig4)
                 }
             }
         }).start()
@@ -515,7 +515,7 @@ class MainActivity : AppCompatActivity() {
             val favorites5 = getItems(favoriteConfig5)
             favorites5?.run {
                 handler.post {
-                    updatefavorites5Tab(this, favoriteConfig5)
+                    updateFavorites5Tab(this, favoriteConfig5)
                 }
             }
         }).start()
@@ -527,7 +527,7 @@ class MainActivity : AppCompatActivity() {
             val favorites6 = getItems(favoriteConfig6)
             favorites6?.run {
                 handler.post {
-                    updatefavorites6Tab(this, favoriteConfig6)
+                    updateFavorites6Tab(this, favoriteConfig6)
                 }
             }
         }).start()
@@ -539,7 +539,7 @@ class MainActivity : AppCompatActivity() {
             val favorites7 = getItems(favoriteConfig7)
             favorites7?.run {
                 handler.post {
-                    updatefavorites7Tab(this, favoriteConfig7)
+                    updateFavorites7Tab(this, favoriteConfig7)
                 }
             }
         }).start()
@@ -551,7 +551,7 @@ class MainActivity : AppCompatActivity() {
             val favorites8 = getItems(favoriteConfig8)
             favorites8?.run {
                 handler.post {
-                    updatefavorites8Tab(this, favoriteConfig8)
+                    updateFavorites8Tab(this, favoriteConfig8)
                 }
             }
         }).start()
@@ -563,7 +563,7 @@ class MainActivity : AppCompatActivity() {
             val favorites9 = getItems(favoriteConfig9)
             favorites9?.run {
                 handler.post {
-                    updatefavorites9Tab(this, favoriteConfig9)
+                    updateFavorites9Tab(this, favoriteConfig9)
                 }
             }
         }).start()
@@ -575,7 +575,7 @@ class MainActivity : AppCompatActivity() {
             val favorites10 = getItems(favoriteConfig10)
             favorites10?.run {
                 handler.post {
-                    updatefavorites10Tab(this, favoriteConfig10)
+                    updateFavorites10Tab(this, favoriteConfig10)
                 }
             }
         }).start()
@@ -587,7 +587,7 @@ class MainActivity : AppCompatActivity() {
             val favorites11 = getItems(favoriteConfig11)
             favorites11?.run {
                 handler.post {
-                    updatefavorites11Tab(this, favoriteConfig11)
+                    updateFavorites11Tab(this, favoriteConfig11)
                 }
             }
         }).start()
@@ -599,7 +599,7 @@ class MainActivity : AppCompatActivity() {
             val favorites12 = getItems(favoriteConfig12)
             favorites12?.run {
                 handler.post {
-                    updatefavorites12Tab(this, favoriteConfig12)
+                    updateFavorites12Tab(this, favoriteConfig12)
                 }
             }
         }).start()
@@ -611,7 +611,7 @@ class MainActivity : AppCompatActivity() {
             val favorites13 = getItems(favoriteConfig13)
             favorites13?.run {
                 handler.post {
-                    updatefavorites13Tab(this, favoriteConfig13)
+                    updateFavorites13Tab(this, favoriteConfig13)
                 }
             }
         }).start()
@@ -623,7 +623,7 @@ class MainActivity : AppCompatActivity() {
             val favorites14 = getItems(favoriteConfig14)
             favorites14?.run {
                 handler.post {
-                    updatefavorites14Tab(this, favoriteConfig14)
+                    updateFavorites14Tab(this, favoriteConfig14)
                 }
             }
         }).start()
@@ -635,7 +635,7 @@ class MainActivity : AppCompatActivity() {
             val favorites15 = getItems(favoriteConfig15)
             favorites15?.run {
                 handler.post {
-                    updatefavorites15Tab(this, favoriteConfig15)
+                    updateFavorites15Tab(this, favoriteConfig15)
                 }
             }
         }).start()
@@ -647,7 +647,7 @@ class MainActivity : AppCompatActivity() {
             val favorites16 = getItems(favoriteConfig16)
             favorites16?.run {
                 handler.post {
-                    updatefavorites16Tab(this, favoriteConfig16)
+                    updateFavorites16Tab(this, favoriteConfig16)
                 }
             }
         }).start()
@@ -659,7 +659,7 @@ class MainActivity : AppCompatActivity() {
             val favorites17 = getItems(favoriteConfig17)
             favorites17?.run {
                 handler.post {
-                    updatefavorites17Tab(this, favoriteConfig17)
+                    updateFavorites17Tab(this, favoriteConfig17)
                 }
             }
         }).start()
@@ -671,7 +671,7 @@ class MainActivity : AppCompatActivity() {
             val favorites18 = getItems(favoriteConfig18)
             favorites18?.run {
                 handler.post {
-                    updatefavorites18Tab(this, favoriteConfig18)
+                    updateFavorites18Tab(this, favoriteConfig18)
                 }
             }
         }).start()
@@ -683,7 +683,7 @@ class MainActivity : AppCompatActivity() {
             val favorites19 = getItems(favoriteConfig19)
             favorites19?.run {
                 handler.post {
-                    updatefavorites19Tab(this, favoriteConfig19)
+                    updateFavorites19Tab(this, favoriteConfig19)
                 }
             }
         }).start()
@@ -695,7 +695,7 @@ class MainActivity : AppCompatActivity() {
             val favorites20 = getItems(favoriteConfig20)
             favorites20?.run {
                 handler.post {
-                    updatefavorites20Tab(this, favoriteConfig20)
+                    updateFavorites20Tab(this, favoriteConfig20)
                 }
             }
         }).start()
@@ -707,7 +707,7 @@ class MainActivity : AppCompatActivity() {
             val favorites21 = getItems(favoriteConfig21)
             favorites21?.run {
                 handler.post {
-                    updatefavorites21Tab(this, favoriteConfig21)
+                    updateFavorites21Tab(this, favoriteConfig21)
                 }
             }
         }).start()
