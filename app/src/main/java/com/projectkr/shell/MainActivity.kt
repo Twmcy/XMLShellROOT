@@ -35,10 +35,10 @@ import com.omarea.krscript.config.PageConfigSh
 import com.omarea.krscript.model.*
 import com.omarea.krscript.ui.ActionListFragment
 import com.omarea.krscript.ui.ParamsFileChooserRender
-import com.wearos.tools.FloatMonitor
-import com.wearos.tools.Update
-import com.wearos.tools.permissions.CheckRootStatus
-import com.wearos.tools.ui.TabIconHelper
+import com.projectkr.shell.FloatMonitor
+import com.projectkr.shell.Update
+import com.projectkr.shell.permissions.CheckRootStatus
+import com.projectkr.shell.ui.TabIconHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import android.app.AlertDialog
 import android.content.DialogInterface
