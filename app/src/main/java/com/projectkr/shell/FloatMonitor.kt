@@ -1,4 +1,4 @@
-package com.omarea.vtools
+package com.projectkr.shell
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
