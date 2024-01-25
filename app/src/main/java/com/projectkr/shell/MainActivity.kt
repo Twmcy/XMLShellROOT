@@ -1,16 +1,18 @@
 package com.projectkr.shell
 
-import android.provider.Settings
 import android.Manifest
 import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -22,6 +24,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
 import com.omarea.common.shared.FilePathResolver
 import com.omarea.common.ui.DialogHelper
 import com.omarea.common.ui.ProgressBarDialog
@@ -35,7 +40,13 @@ import com.projectkr.shell.Update
 import com.projectkr.shell.permissions.CheckRootStatus
 import com.projectkr.shell.ui.TabIconHelper
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.ArrayList
+import gjzs.online.permissions.CheckRootStatus as OnlineCheckRootStatus
+import gjzs.online.ui.TabIconHelper as OnlineTabIconHelper
+import net.khirr.android.privacypolicy.PrivacyPolicyDialog
+import com.wearos.tools.FloatMonitor as WearOSFloatMonitor
+import com.wearos.tools.Update as WearOSUpdate
+import com.wearos.tools.permissions.CheckRootStatus as WearOSCheckRootStatus
+import com.wearos.tools.ui.TabIconHelper as WearOSTabIconHelper
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
@@ -306,19 +317,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.option_menu_info -> {
-                val layoutInflater = LayoutInflater.from(this)
-                val layout = layoutInflater.inflate(R.layout.dialog_about, null)
-                val transparentUi = layout.findViewById<CompoundButton>(R.id.transparent_ui);
-                val themeConfig = ThemeConfig(this)
-                transparentUi.setOnClickListener {
-                    val isChecked = (it as CompoundButton).isChecked
-                R.id.option_menu_info -> {
+           R.id.option_menu_info -> {
                 val intent = Intent()
                 intent.setClass(this,AboutActivity::class.java)
                 startActivity(intent)
             }
-            
             R.id.option_menu_reboot -> {
                 DialogPower(this).showPowerMenu()
             }
