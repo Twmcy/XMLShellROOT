@@ -326,11 +326,23 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.option_menu_info -> {
-                val intent = Intent()
-                intent.setClass(this,AboutActivity::class.java)
-                startActivity(intent)
+                val layoutInflater = LayoutInflater.from(this)
+                val layout = layoutInflater.inflate(R.layout.dialog_about, null)
+                val transparentUi = layout.findViewById<CompoundButton>(R.id.transparent_ui);
+                val themeConfig = ThemeConfig(this)
+                transparentUi.setOnClickListener {
+                    val isChecked = (it as CompoundButton).isChecked
+                    if (isChecked && !checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                        it.isChecked = false
+                        Toast.makeText(this@MainActivity, R.string.kr_write_external_storage, Toast.LENGTH_SHORT).show()
+                    } else {
+                        themeConfig.setAllowTransparentUI(isChecked)
+                    }
+                }
+                transparentUi.isChecked = themeConfig.getAllowTransparentUI()
+
+                DialogHelper.customDialog(this, layout)
             }
-            
             R.id.option_menu_reboot -> {
                 DialogPower(this).showPowerMenu()
             }
