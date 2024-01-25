@@ -54,25 +54,9 @@ class MainActivity : AppCompatActivity() {
     private var handler = Handler()
     private var krScriptConfig = KrScriptConfig()
 
-    private lateinit var sharedPreferences: SharedPreferences
-
-    private val AGREEMENT_ACCEPTED_KEY = "agreement_accepted"
-
-    private fun checkPermission(permission: String): Boolean =
-        PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
-
+    private fun checkPermission(permission: String): Boolean = PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
+    private var isDialogShown = false
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        ThemeModeState.switchTheme(this)
-        setContentView(R.layout.activity_main)
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        
-        if (!isAgreementAccepted()) {
-            showAgreementDialog()
-        } else {
-            initializeAfterAgreement()
-        }
       
     // 因为，所以，还是所以，有些小白不会写也不会编译，可以在软件中加入，把//去了就可以用了，把SHA1转换base64
         //val appcenterStatus = AppCenterStatus(this)
@@ -84,15 +68,6 @@ class MainActivity : AppCompatActivity() {
      //   } else {
           //  Log.d("AppCenter", "AppCenter is disabled")
    //     }
-        dialog.title = getString(R.string.termsOfServiceTitle)
-        dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
-        dialog.addPoliceLine(getString(R.string.PoliceLine1))
-        dialog.addPoliceLine(getString(R.string.PoliceLine2))
-        dialog.cancelText = getString(R.string.dialog_cancelText)
-        dialog.acceptText = getString(R.string.dialog_acceptText)
-        dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
-        dialog.europeOnly = false
-        dialog.show()
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         setTitle(R.string.app_name)
