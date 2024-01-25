@@ -68,6 +68,23 @@ class MainActivity : AppCompatActivity() {
      //   } else {
           //  Log.d("AppCenter", "AppCenter is disabled")
    //     }
+           dialog.title = getString(R.string.termsOfServiceTitle)
+        dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
+        dialog.addPoliceLine(getString(R.string.PoliceLine1))
+        dialog.addPoliceLine(getString(R.string.PoliceLine2))
+        dialog.cancelText = getString(R.string.dialog_cancelText)
+        dialog.acceptText = getString(R.string.dialog_acceptText)
+        dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
+        dialog.europeOnly = false
+        dialog.show()
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        setTitle(R.string.app_name)
+
+        krScriptConfig = KrScriptConfig()
+
+
+        //supportActionBar!!.elevation = 0f
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         setTitle(R.string.app_name)
