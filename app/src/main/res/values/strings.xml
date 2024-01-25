@@ -12,6 +12,7 @@
     <string name="please_wait">请稍等</string>
     <string name="title_activity_action_page">功能分页</string>
 
+    <string name="card_content">TEST-About</string>
     <string name="appcenter_switch">App Center 统计开关</string>
     <string name="author_name">XMLROOT</string>
     <string name="about_title">XMLROOT</string>
