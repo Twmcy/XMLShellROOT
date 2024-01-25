@@ -1,0 +1,77 @@
+name: Push CI
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+        fetch-depth: 0
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: gradle
+    - name: Build with Gradle
+      id: build
+      env:
+        KEYSTORE_PATH: "../keystore.jks"
+        KEYSTORE_PASSWORD: test666
+        KEY_ALIAS: test666
+        KEY_PASSWORD: test666
+      run: |
+        echo 'org.gradle.jvmargs=-Xmx3072m' >> gradle.properties
+        chmod 777 *
+        ./gradlew :app:assembleRelease
+        rm keystore.jks
+        echo "APkFileName=$(find app/build/outputs/apk/release -name "*.apk")" >> $GITHUB_ENV
+        echo "::set-output name=status::success"
+ 
+    - name: Upload Artefact
+      uses: actions/upload-artifact@main
+      if: steps.build.outputs.status == 'success' && !cancelled()
+      with:
+        name: app-release
+        path: ${{ env.APkFileName }}
+
+    - name: Upload Artefact to App Center
+      if: steps.build.outputs.status == 'success' && !cancelled()
+      uses: wzieba/AppCenter-Github-Action@v1.3.2
+      with:
+        appName: liuran001/gao3-ji1-zhu4-shou3-R
+        token: ${{secrets.APP_CENTER_TOKEN}}
+        group: 'XMLROOT'
+        file: ${{ env.APkFileName }}
+        notifyTesters: true
+        debug: false
+        gitReleaseNotes: true
+
+      # https://github.com/yujincheng08/BiliRoaming/blob/019eb71afa1887a461f7603987c822ea3fd67f88/.github/workflows/android.yml#L50
+    - name: Post to channel
+      if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      env:
+        CHANNEL_ID: ${{ secrets.TELEGRAM_TO }}
+        BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        FILE: ${{ github.workspace }}/${{ env.APkFileName }}
+        COMMIT_MESSAGE: |+
+          New push to github\!
+          ```
+          ${{ github.event.head_commit.message }}
+          ```by `${{ github.event.head_commit.author.name }}`
+          See commit detail [here](${{ github.event.head_commit.url }})
+          Snapshot apk is attached
+      run: |
+        ESCAPED=`python3 -c 'import json,os,urllib.parse; print(urllib.parse.quote(json.dumps(os.environ["COMMIT_MESSAGE"])))'`
+        curl -v "https://api.telegram.org/bot${{ secrets.BOTTOKEN }}/sendMediaGroup?chat_id=${{ secrets.MESSAGEID }}&media=%5B%7B%22type%22:%22document%22,%20%22media%22:%22attach://release%22,%22parse_mode%22:%22MarkdownV2%22,%22caption%22:${ESCAPED}%7D%5D"  -F release="@$FILE"

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<items>
+    <group title="运行环境测试">
+        <page config="samples/env/env.xml" title="环境测试">
+            <resource dir="file:///android_asset/samples/env" />
+        </page>
+    </group>
+
+    <group title="功能节点">
+        <page config="samples/action.xml" title="Action（动作）" />
+        <page config="samples/switch.xml" title="Switch（开关）" />
+        <page config="samples/picker.xml" title="Picker（选择）" />
+        <page config="samples/page.xml" title="Page（子页面）" />
+    </group>
+
+    <group title="文字节点">
+        <page config="samples/text.xml" title="Text（文字节点）" />
+    </group>
+
+    <group>
+        <text>
+            <title>更新帮助</title>
+            <desc>可以改u更新服务器，用github/gitee，看根目录的json
+            </desc>
+        </text>
+    </group>
+
+    <group>
+        <text>
+            <title>签名验证</title>
+            <desc>默认关闭的，要改代码把//删了
+            </desc>
+        </text>
+    </group>
+
+    <group>
+        <text>
+            <title>自定义Root权限</title>
+            <desc>可以修改su，用mt管理搜索自动定义ROOT
+            </desc>
+        </text>
+    </group>
+
+
+    <group>
+        <text>
+            <title>界面问题</title>
+            <desc>从xml_xml1到xml_xml21
+            </desc>
+        </text>
+    </group>
+
+    <group>
+        <text>
+            <title>同意协议</title>
+            <desc>用\n换行，比如 大家好\n欢迎大家使用wearos 管家
+            </desc>
+        </text>
+    </group>
+
+    <group>
+        <text>
+            <title>QQ群</title>
+            <desc>加QQ群聊天/反馈 832405462
+            </desc>
+        </text>
+    </group>
+
+    <group>
+        <text>
+            <title>我想说的</title>
+            <desc>各位，这个框架我免费更新，想到加什么就加什么，我的另外一个项目就是wearos管家，大家支持一下，谢谢
+            </desc>
+        </text>
+    </group>
+
+    <group title="其它">
+        <page config="samples/shortcut.xml" title="快捷方式&amp;图标" desc="配置功能节点可配置为快捷方式，并设置图标" />
+        <page config="samples/reload.xml" title="reload 属性" desc="配置节点显示内容关联刷新" />
+        <page config="samples/bg_task/bg_task.xml" title="后台任务" />
+        <page config="samples/new.xml" title="新功能测试" />
+    </group>
+
+    <group title="Web引擎">
+        <page config="samples/web.xml" title="网页引擎测试" />
+    </group>
+
+</items>

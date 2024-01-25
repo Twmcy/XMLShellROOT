@@ -1,0 +1,82 @@
+<resources>
+    <!--重要内容，谨慎修改-->
+    <string name="kr_script_config">kr-script.conf</string>
+
+    <!--是否强制获取ROOT-->
+    <bool name="force_root">false</bool>
+
+    <string name="app_name">XMLROOT</string>
+    <string name="btn_exit">退出</string>
+    <string name="float_monitor_tips">双击悬浮窗即可关闭，或按住拖动调整位置</string>
+    <string name="permission_float">请授权显示悬浮窗权限！</string>
+    <string name="please_wait">请稍等</string>
+    <string name="title_activity_action_page">功能分页</string>
+
+    <string name="author_name">XMLROOT</string>
+    <string name="about_title">XMLROOT</string>
+    <string name="appliction_desc">XMLROOT</string>
+    <string name="appliction_name">XMLROOT</string>
+    <string name="appliction_author">XMLROOT</string>
+    <string name="engine_version_name">XMLROOT</string>
+
+    <string name="tab_home">首页</string>
+    <string name="tab_favorites">收藏夹</string>
+    <string name="tab_pages">全部</string>
+    <string name="tab_favorites1">全部</string>
+    <string name="tab_favorites2">全部</string>
+    <string name="tab_favorites3">全部</string>
+    <string name="tab_favorites4">全部</string>
+    <string name="tab_favorites5">全部</string>
+    <string name="tab_favorites6">全部</string>
+    <string name="tab_favorites7">全部</string>
+    <string name="tab_favorites8">全部</string>
+    <string name="tab_favorites9">全部</string>
+    <string name="tab_favorites10">全部</string>
+    <string name="tab_favorites11">全部</string>
+    <string name="tab_favorites12">全部</string>
+    <string name="tab_favorites13">全部</string>
+    <string name="tab_favorites14">全部</string>
+    <string name="tab_favorites15">全部</string>
+    <string name="tab_favorites16">全部</string>
+    <string name="tab_favorites17">全部</string>
+    <string name="tab_favorites18">全部</string>
+    <string name="tab_favorites19">全部</string>
+    <string name="tab_favorites20">全部</string>
+    <string name="tab_favorites21">全部</string>
+
+    <string name="monitor_laod">负载：%d%%</string>
+    <string name="monitor_core_count">%d 核心</string>
+    <string name="monitor_cache_cleared">已回收用于缓存的RAM</string>
+    <string name="monitor_ram_cleared">RAM碎片已整理</string>
+
+    <string name="copy_success">复制成功</string>
+    <string name="btn_retry">重试</string>
+
+    <string name="pio_starting">PIO·STARTING</string>
+    <string name="pop_before_start">正准备启动应用…</string>
+    <string name="pop_started">启动完成！</string>
+    <string name="pio_permission_checking">检查并获取必需权限……</string>
+    <string name="error_root">未能获得ROOT授权，如果你的手机已经ROOT，清在授权管理器弹出对话框时选择允许！</string>
+    <string name="error_su_timeout">等待ROOT授权超时，请检查授权管理器是否在后台运行！</string>
+    <string name="transparent_ui">界面透明 </string>
+    <string name="title_activity_file_selector">请选择文件</string>
+
+    <string name="termsOfServiceSubtitle">框架QQ群交流 832405462</string>
+    <string name="termsOfServiceTitle">框架QQ群交流 832405462</string>
+    <string name="PoliceLine2">框架QQ群交流 832405462</string>
+    <string name="dialog_cancelText">框架QQ群交流 832405462</string>
+    <string name="PoliceLine1">看github文档帮助</string>
+    <string name="dialog_acceptText">框架QQ群交流 832405462</string>
+    <string name="update">http://127.0.0.1/update.json</string>
+
+
+
+    <string name="title_activity_folder_selector">请长按选择目录</string>
+
+    <string name="power_shutdown_cmd">sync;svc power shutdown || reboot -p;</string>
+    <string name="power_reboot_cmd">sync;svc power reboot || reboot;</string>
+    <string name="power_hot_reboot_cmd">sync;am restart || busybox killall system_server;</string>
+    <string name="power_fastboot_cmd">sync;reboot bootloader;</string>
+    <string name="power_recovery_cmd">sync;reboot recovery;</string>
+    <string name="power_emergency_cmd">sync;reboot edl;</string>
+</resources>
