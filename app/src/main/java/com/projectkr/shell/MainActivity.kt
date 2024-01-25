@@ -1,6 +1,5 @@
 package com.projectkr.shell
 
-import android.app.AlertDialog
 import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
@@ -19,6 +18,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout
+import android.widget.TabHost
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -51,7 +53,11 @@ class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
     private var handler = Handler()
     private var krScriptConfig = KrScriptConfig()
-
+private lateinit var mainTabHost: TabHost
+    private lateinit var mainTabHostCpu: FrameLayout
+    private lateinit var mainTabHost2: FrameLayout
+    private lateinit var mainTabHost3: FrameLayout
+    
     private fun checkPermission(permission: String): Boolean = PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +71,11 @@ class MainActivity : AppCompatActivity() {
      //   } else {
           //  Log.d("AppCenter", "AppCenter is disabled")
    //     }
+   mainTabHost = findViewById(R.id.main_tabhost)
+        mainTabHostCpu = findViewById(R.id.main_tabhost_cpu)
+        mainTabHost2 = findViewById(R.id.main_tabhost_2)
+        mainTabHost3 = findViewById(R.id.main_tabhost_3)
+
         super.onCreate(savedInstanceState)
         ThemeModeState.switchTheme(this)
         setContentView(R.layout.activity_main)
