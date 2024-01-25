@@ -124,27 +124,27 @@ class MainActivity : AppCompatActivity() {
 
             val pages = getItems(page2Config)
             val favorites = getItems(favoritesConfig)
-            val favorites = getItems(favoriteConfig1)
-            val favorites = getItems(favoriteConfig2)
-            val favorites = getItems(favoriteConfig3)
-            val favorites = getItems(favoriteConfig4)
-            val favorites = getItems(favoriteConfig5)
-            val favorites = getItems(favoriteConfig6)
-            val favorites = getItems(favoriteConfig7)
-            val favorites = getItems(favoriteConfig8)
-            val favorites = getItems(favoriteConfig9)
-            val favorites = getItems(favoriteConfig10)
-            val favorites = getItems(favoriteConfig11)
-            val favorites = getItems(favoriteConfig12)
-            val favorites = getItems(favoriteConfig13)
-            val favorites = getItems(favoriteConfig14)
-            val favorites = getItems(favoriteConfig15)
-            val favorites = getItems(favoriteConfig16)
-            val favorites = getItems(favoriteConfig17)
-            val favorites = getItems(favoriteConfig18)
-            val favorites = getItems(favoriteConfig19)
-            val favorites = getItems(favoriteConfig20)
-            val favorites = getItems(favoriteConfig21)
+            val favorites1 = getItems(favoriteConfig1)
+            val favorites2 = getItems(favoriteConfig2)
+            val favorites3 = getItems(favoriteConfig3)
+            val favorites4 = getItems(favoriteConfig4)
+            val favorites5 = getItems(favoriteConfig5)
+            val favorites6 = getItems(favoriteConfig6)
+            val favorites7 = getItems(favoriteConfig7)
+            val favorites8 = getItems(favoriteConfig8)
+            val favorites9 = getItems(favoriteConfig9)
+            val favorites10 = getItems(favoriteConfig10)
+            val favorites11 = getItems(favoriteConfig11)
+            val favorites12 = getItems(favoriteConfig12)
+            val favorites13 = getItems(favoriteConfig13)
+            val favorites14 = getItems(favoriteConfig14)
+            val favorites15 = getItems(favoriteConfig15)
+            val favorites16 = getItems(favoriteConfig16)
+            val favorites17 = getItems(favoriteConfig17)
+            val favorites18 = getItems(favoriteConfig18)
+            val favorites19 = getItems(favoriteConfig19)
+            val favorites20 = getItems(favoriteConfig20)
+            val favorites21 = getItems(favoriteConfig21)
             handler.post {
                 progressBarDialog.hideDialog()
 
@@ -165,147 +165,147 @@ class MainActivity : AppCompatActivity() {
                 
                 if (favorites1 != null && favorites1.size > 0) {
                     updatefavorites1Tab(favorites1, favoriteConfig1)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites1), ContextCompat.getDrawable(this, R.drawable.tab_favorites1)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites1), ContextCompat.getDrawable(this, R.drawable.tab_favorites1)!!, R.id.main_tabhost_3)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites2 != null && favorites2.size > 0) {
                     updatefavorites2Tab(favorites2, favoriteConfig2)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites2), ContextCompat.getDrawable(this, R.drawable.tab_favorites2)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites2), ContextCompat.getDrawable(this, R.drawable.tab_favorites2)!!, R.id.main_tabhost_4)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites3 != null && favorites3.size > 0) {
                     updatefavorites3Tab(favorites3, favoriteConfig3)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites3), ContextCompat.getDrawable(this, R.drawable.tab_favorites3)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites3), ContextCompat.getDrawable(this, R.drawable.tab_favorites3)!!, R.id.main_tabhost_5)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites4 != null && favorites4.size > 0) {
                     updatefavorites4Tab(favorites4, favoriteConfig4)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites4), ContextCompat.getDrawable(this, R.drawable.tab_favorites4)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites4), ContextCompat.getDrawable(this, R.drawable.tab_favorites4)!!, R.id.main_tabhost_6)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites5 != null && favorites5.size > 0) {
                     updatefavorites5Tab(favorites5, favoriteConfig5)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites5), ContextCompat.getDrawable(this, R.drawable.tab_favorites5)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites5), ContextCompat.getDrawable(this, R.drawable.tab_favorites5)!!, R.id.main_tabhost_7)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites6 != null && favorites6.size > 0) {
                     updatefavorites6Tab(favorites6, favoriteConfig6)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites6), ContextCompat.getDrawable(this, R.drawable.tab_favorites6)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites6), ContextCompat.getDrawable(this, R.drawable.tab_favorites6)!!, R.id.main_tabhost_8)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites7 != null && favorites7.size > 0) {
                     updatefavorites7Tab(favorites7, favoriteConfig7)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites7), ContextCompat.getDrawable(this, R.drawable.tab_favorites7)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites7), ContextCompat.getDrawable(this, R.drawable.tab_favorites7)!!, R.id.main_tabhost_9)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites8 != null && favorites8.size > 0) {
                     updatefavorites8Tab(favorites8, favoriteConfig8)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites8), ContextCompat.getDrawable(this, R.drawable.tab_favorites8)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites8), ContextCompat.getDrawable(this, R.drawable.tab_favorites8)!!, R.id.main_tabhost_10)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites9 != null && favorites9.size > 0) {
                     updatefavorites9Tab(favorites9, favoriteConfig9)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites9), ContextCompat.getDrawable(this, R.drawable.tab_favorites9)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites9), ContextCompat.getDrawable(this, R.drawable.tab_favorites9)!!, R.id.main_tabhost_11)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites10 != null && favorites10.size > 0) {
                     updatefavorites10Tab(favorites10, favoriteConfig10)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites10), ContextCompat.getDrawable(this, R.drawable.tab_favorites10)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites10), ContextCompat.getDrawable(this, R.drawable.tab_favorites10)!!, R.id.main_tabhost_12)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites11 != null && favorites11.size > 0) {
                     updatefavorites11Tab(favorites11, favoriteConfig11)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites11), ContextCompat.getDrawable(this, R.drawable.tab_favorites11)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites11), ContextCompat.getDrawable(this, R.drawable.tab_favorites11)!!, R.id.main_tabhost_13)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites12 != null && favorites12.size > 0) {
                     updatefavorites12Tab(favorites12, favoriteConfig12)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites12), ContextCompat.getDrawable(this, R.drawable.tab_favorites12)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites12), ContextCompat.getDrawable(this, R.drawable.tab_favorites12)!!, R.id.main_tabhost_14)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites13 != null && favorites13.size > 0) {
                     updatefavorites13Tab(favorites13, favoriteConfig13)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites13), ContextCompat.getDrawable(this, R.drawable.tab_favorites13)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites13), ContextCompat.getDrawable(this, R.drawable.tab_favorites13)!!, R.id.main_tabhost_15)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites14 != null && favorites14.size > 0) {
                     updatefavorites14Tab(favorites14, favoriteConfig14)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites14), ContextCompat.getDrawable(this, R.drawable.tab_favorites14)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites14), ContextCompat.getDrawable(this, R.drawable.tab_favorites14)!!, R.id.main_tabhost_16)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites15 != null && favorites15.size > 0) {
                     updatefavorites15Tab(favorites15, favoriteConfig15)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites15), ContextCompat.getDrawable(this, R.drawable.tab_favorites15)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites15), ContextCompat.getDrawable(this, R.drawable.tab_favorites15)!!, R.id.main_tabhost_17)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites16 != null && favorites16.size > 0) {
                     updatefavorites16Tab(favorites16, favoriteConfig16)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites16), ContextCompat.getDrawable(this, R.drawable.tab_favorites16)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites16), ContextCompat.getDrawable(this, R.drawable.tab_favorites16)!!, R.id.main_tabhost_18)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites17 != null && favorites17.size > 0) {
                     updatefavorites17Tab(favorites17, favoriteConfig17)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites17), ContextCompat.getDrawable(this, R.drawable.tab_favorites17)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites17), ContextCompat.getDrawable(this, R.drawable.tab_favorites17)!!, R.id.main_tabhost_19)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites18 != null && favorites18.size > 0) {
                     updatefavorites18Tab(favorites18, favoriteConfig18)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites18), ContextCompat.getDrawable(this, R.drawable.tab_favorites18)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites18), ContextCompat.getDrawable(this, R.drawable.tab_favorites18)!!, R.id.main_tabhost_20)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites19 != null && favorites19.size > 0) {
                     updatefavorites19Tab(favorites19, favoriteConfig19)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites19), ContextCompat.getDrawable(this, R.drawable.tab_favorites19)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites19), ContextCompat.getDrawable(this, R.drawable.tab_favorites19)!!, R.id.main_tabhost_21)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites20 != null && favorites20.size > 0) {
                     updatefavorites20Tab(favorites20, favoriteConfig20)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites20), ContextCompat.getDrawable(this, R.drawable.tab_favorites20)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites20), ContextCompat.getDrawable(this, R.drawable.tab_favorites20)!!, R.id.main_tabhost_22)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
 
                 if (favorites21 != null && favorites21.size > 0) {
                     updatefavorites21Tab(favorites21, favoriteConfig21)
-                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites21), ContextCompat.getDrawable(this, R.drawable.tab_favorites21)!!, R.id.main_tabhost_2)
+                    tabIconHelper.newTabSpec(getString(R.string.tab_favorites21), ContextCompat.getDrawable(this, R.drawable.tab_favorites21)!!, R.id.main_tabhost_23)
                 } else {
                     main_tabhost_2.visibility = View.GONE
                 }
@@ -344,87 +344,87 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites, favoritesFragment).commitAllowingStateLoss()
     }
 
-    private fun updatefavorites1Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites1Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites1Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites1, favorites1Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites2Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites2Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites2Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites2, favorites2Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites3Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites3Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites3Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites3, favorites3Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites4Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites4Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites4Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites4, favorites4Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites5Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites5Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites5Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites5, favorites5Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites6Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites6Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites6Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites6, favorites6Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites7Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites7Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites7Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites7, favorites7Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites8Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites8Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites8Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites8, favorites8Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites9Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites9Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites9Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites9, favorites9Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites10Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites10Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites10Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites10, favorites10Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites11Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites11Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites11Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites11, favorites11Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites12Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites12Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites12Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites12, favorites12Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites13Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites13Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites13Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites13, favorites13Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites14Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites14Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites14Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites14, favorites14Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites15Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites15Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites15Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites15, favorites15Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites16Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites16Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites16Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites16, favorites16Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites17Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites17Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites17Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites17, favorites17Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites18Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites18Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites18Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites18, favorites18Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites19Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites19Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites19Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites19, favorites19Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites20Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites20Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites20Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites20, favorites20Fragment).commitAllowingStateLoss()
     }
-    private fun updatefavorites21Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
+    private fun updateFavorites21Tab(items: ArrayList<NodeInfoBase>, pageNode: PageNode) {
         val favorites21Fragment = ActionListFragment.create(items, getKrScriptActionHandler(pageNode, true), null, ThemeModeState.getThemeMode())
         supportFragmentManager.beginTransaction().replace(R.id.list_favorites21, favorites21Fragment).commitAllowingStateLoss()
     }

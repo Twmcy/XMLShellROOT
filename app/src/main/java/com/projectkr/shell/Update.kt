@@ -17,6 +17,7 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
 import java.net.URL
+
 // 我是个傻逼，我是个小可爱，嘿嘿
 
 class Update {
@@ -33,9 +34,10 @@ class Update {
         return code
     }
 //自己用raw的github/gitee
-fun checkUpdate(context: Context) {
+fun checkUpdate(context: Context) {fun checkUpdate(context: Context) {
     val handler = Handler(Looper.getMainLooper())
-    Thread(Runnable {
+
+    Thread {
         try {
             val urlStr = context.resources.getString(R.string.update)
             val updateUrl = URL(urlStr)
@@ -54,7 +56,12 @@ fun checkUpdate(context: Context) {
                 stringBuilder.append("\n")
             }
 
-            val jsonObject = JSONObject(stringBuilder.toString().trim { it <= ' ' })
+            bufferedReader.close()
+            connection.disconnect()
+
+            val jsonString = stringBuilder.toString().trim()
+
+            val jsonObject = JSONObject(jsonString)
 
             if (jsonObject.has("versionCode")) {
                 val currentVersion = currentVersionCode(context)
@@ -63,6 +70,7 @@ fun checkUpdate(context: Context) {
                         try {
                             update(context, jsonObject)
                         } catch (ex: Exception) {
+                            ex.printStackTrace()
                         }
                     }
                 }
@@ -70,13 +78,14 @@ fun checkUpdate(context: Context) {
 
         } catch (ex: Exception) {
             ex.printStackTrace()
-            
+
             handler.post {
                 Toast.makeText(context, "检查更新失败！\n" + ex.message, Toast.LENGTH_SHORT).show()
             }
         }
-    }).start()
+    }.start()
 }
+
 
     private fun update(context: Context, jsonObject: JSONObject) {
         DialogHelper.confirm(context,
