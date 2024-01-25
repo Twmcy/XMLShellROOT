@@ -1,39 +1,53 @@
 package com.projectkr.shell
 
-import android.Manifest
-import android.app.Activity
-import android.content.ComponentName
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.provider.Settings
-import android.util.DisplayMetrics
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.CompoundButton
-import android.widget.Toast
+import android.Manifest;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Base64;
+import android.content.SharedPreferences;
+import android.util.DisplayMetrics;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout
+import android.widget.TabHost
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.PermissionChecker
-import com.omarea.common.shared.FilePathResolver
-import com.omarea.common.ui.DialogHelper
-import com.omarea.common.ui.ProgressBarDialog
-import com.omarea.krscript.config.PageConfigReader
-import com.omarea.krscript.config.PageConfigSh
-import com.omarea.krscript.model.*
-import com.omarea.krscript.ui.ActionListFragment
-import com.omarea.krscript.ui.ParamsFileChooserRender
-import com.projectkr.shell.FloatMonitor
-import com.projectkr.shell.permissions.CheckRootStatus
-import com.projectkr.shell.ui.TabIconHelper
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+import com.omarea.common.shared.FilePathResolver;
+import com.omarea.common.ui.ProgressBarDialog;
+import com.omarea.krscript.config.PageConfigReader;
+import com.omarea.krscript.config.PageConfigSh;
+import com.projectkr.shell.FloatMonitor;
+import com.omarea.krscript.model.*;
+import com.omarea.krscript.ui.ActionListFragment;
+import com.omarea.krscript.ui.ParamsFileChooserRender;
+import com.projectkr.shell.ui.TabIconHelper;
+import com.projectkr.shell.permissions.CheckRootStatus;
+import com.omarea.common.ui.DialogHelper;
+import android.view.LayoutInflater;
+import android.widget.CompoundButton;
+import android.provider.Settings;
+import net.khirr.android.privacypolicy.PrivacyPolicyDialog;
+import com.projectkr.shell.Update;
+import android.widget.TextView
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
@@ -46,7 +60,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ThemeModeState.switchTheme(this)
         setContentView(R.layout.activity_main)
+    // 因为，所以，还是所以，有些小白不会写也不会编译，可以在软件中加入，把//去了就可以用了，把SHA1转换base64
+        //val appcenterStatus = AppCenterStatus(this)
+      //  val signCode = String(Base64.decode("你的base64签名))
+       // val signCheck = SignCheck(this, signCode)
+        Update().checkUpdate(this)
+      //  if (appcenterStatus.getAppCenterStatus() && signCheck.check()) {
+          //  AppCenter.start(application, "可以不用", Analytics::class.java, Crashes::class.java)
+     //   } else {
+          //  Log.d("AppCenter", "AppCenter is disabled")
+   //     }
 
+//supportActionBar!!.elevation = 0f
+        dialog.title = getString(R.string.termsOfServiceTitle)
+        dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
+        dialog.addPoliceLine(getString(R.string.PoliceLine1))
+        dialog.addPoliceLine(getString(R.string.PoliceLine2))
+        dialog.cancelText = getString(R.string.dialog_cancelText)
+        dialog.acceptText = getString(R.string.dialog_acceptText)
+        dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
+        dialog.europeOnly = false
+        dialog.show()
+        
         //supportActionBar!!.elevation = 0f
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
