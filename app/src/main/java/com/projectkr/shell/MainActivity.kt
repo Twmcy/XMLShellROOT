@@ -313,17 +313,12 @@ class MainActivity : AppCompatActivity() {
                 val themeConfig = ThemeConfig(this)
                 transparentUi.setOnClickListener {
                     val isChecked = (it as CompoundButton).isChecked
-                    if (isChecked && !checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                        it.isChecked = false
-                        Toast.makeText(this@MainActivity, R.string.kr_write_external_storage, Toast.LENGTH_SHORT).show()
-                    } else {
-                        themeConfig.setAllowTransparentUI(isChecked)
-                    }
-                }
-                transparentUi.isChecked = themeConfig.getAllowTransparentUI()
-
-                DialogHelper.customDialog(this, layout)
+                R.id.option_menu_info -> {
+                val intent = Intent()
+                intent.setClass(this,AboutActivity::class.java)
+                startActivity(intent)
             }
+            
             R.id.option_menu_reboot -> {
                 DialogPower(this).showPowerMenu()
             }
