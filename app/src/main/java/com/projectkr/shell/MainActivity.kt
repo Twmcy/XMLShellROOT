@@ -9,16 +9,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.provider.Settings
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.util.Base64
-import com.microsoft.appcenter.AppCenter
-import com.microsoft.appcenter.analytics.Analytics
-import com.microsoft.appcenter.crashes.Crashes
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
@@ -40,10 +34,7 @@ import com.projectkr.shell.Update
 import com.projectkr.shell.permissions.CheckRootStatus
 import com.projectkr.shell.ui.TabIconHelper
 import kotlinx.android.synthetic.main.activity_main.*
-import android.app.AlertDialog
-import android.content.DialogInterface
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
