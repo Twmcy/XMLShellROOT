@@ -18,7 +18,6 @@ import java.io.File
 import java.io.InputStreamReader
 import java.net.URL
 
-// 我是个傻逼，我是个小可爱，嘿嘿
 
 class Update {
     private fun currentVersionCode(context: Context): Int {
@@ -33,59 +32,54 @@ class Update {
 
         return code
     }
-//自己用raw的github/gitee
-fun checkUpdate(context: Context) {fun checkUpdate(context: Context) {
-    val handler = Handler(Looper.getMainLooper())
 
-    Thread {
-        try {
-            val urlStr = context.resources.getString(R.string.update)
-            val updateUrl = URL(urlStr)
+    fun checkUpdate(context: Context) {
+        val handler = Handler(Looper.getMainLooper());
+        Thread(Runnable {
+            //http://47.106.224.127/
+            try {
+                val url = URL("http://127.0.0.1/update.json")
+                val connection = url.openConnection()
+                // 设置连接方式：get
+                // connection.setRequestMethod("GET");
+                // 设置连接主机服务器的超时时间：15000毫秒
+                connection.connectTimeout = 15000
+                // 设置读取远程返回的数据时间：60000毫秒
+                connection.readTimeout = 60000
+                val bufferedReader = BufferedReader(InputStreamReader(connection.getInputStream()))
+                val stringBuilder = StringBuilder()
+                while (true) {
+                    val line = bufferedReader.readLine()
+                    if (line != null) {
+                        stringBuilder.append(line)
+                        stringBuilder.append("\n")
+                    } else {
+                        break
+                    }
+                }
+                val jsonObject = JSONObject(stringBuilder.toString().trim { it <= ' ' })
 
-            val connection = updateUrl.openConnection() as HttpURLConnection
-            connection.requestMethod = "GET"
-            connection.connectTimeout = 15000
-            connection.readTimeout = 60000
+                if (jsonObject.has("versionCode")) {
+                    val currentVersion = currentVersionCode(context)
+                    if (currentVersion < jsonObject.getInt("versionCode")) {
+                        handler.post {
+                            try {
+                                update(context, jsonObject)
+                            } catch (ex: java.lang.Exception) {
 
-            val bufferedReader = BufferedReader(InputStreamReader(connection.inputStream))
-            val stringBuilder = StringBuilder()
-
-            while (true) {
-                val line = bufferedReader.readLine() ?: break
-                stringBuilder.append(line)
-                stringBuilder.append("\n")
-            }
-
-            bufferedReader.close()
-            connection.disconnect()
-
-            val jsonString = stringBuilder.toString().trim()
-
-            val jsonObject = JSONObject(jsonString)
-
-            if (jsonObject.has("versionCode")) {
-                val currentVersion = currentVersionCode(context)
-                if (currentVersion < jsonObject.getInt("versionCode")) {
-                    handler.post {
-                        try {
-                            update(context, jsonObject)
-                        } catch (ex: Exception) {
-                            ex.printStackTrace()
+                            }
                         }
                     }
                 }
+            } catch (ex: Exception) {
+                /*
+                handler.post {
+                    Toast.makeText(context, "检查更新失败！\n" + ex.message, Toast.LENGTH_SHORT).show()
+                }
+                */
             }
-
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-
-            handler.post {
-                Toast.makeText(context, "检查更新失败！\n" + ex.message, Toast.LENGTH_SHORT).show()
-            }
-        }
-    }.start()
-}
-
+        }).start()
+    }
 
     private fun update(context: Context, jsonObject: JSONObject) {
         DialogHelper.confirm(context,
