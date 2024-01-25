@@ -41,6 +41,199 @@
                         android:id="@+id/list_favorites"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+                        
+                        
+                <FrameLayout
+                    android:id="@+id/main_tabhost_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                        
+                <FrameLayout
+                    android:id="@+id/main_tabhost_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_17"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_19"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites17"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites19"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites20"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                <FrameLayout
+                    android:id="@+id/main_tabhost_23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/list_favorites21"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
                 </FrameLayout>
 
                 <FrameLayout
