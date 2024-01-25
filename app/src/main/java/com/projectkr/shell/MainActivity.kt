@@ -47,6 +47,7 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 import com.projectkr.shell.R
 import android.content.DialogInterface
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
@@ -83,58 +84,21 @@ class MainActivity : AppCompatActivity() {
      //   } else {
           //  Log.d("AppCenter", "AppCenter is disabled")
    //     }
-
+        dialog.title = getString(R.string.termsOfServiceTitle)
+        dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
+        dialog.addPoliceLine(getString(R.string.PoliceLine1))
+        dialog.addPoliceLine(getString(R.string.PoliceLine2))
+        dialog.cancelText = getString(R.string.dialog_cancelText)
+        dialog.acceptText = getString(R.string.dialog_acceptText)
+        dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
+        dialog.europeOnly = false
+        dialog.show()
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         setTitle(R.string.app_name)
 
         krScriptConfig = KrScriptConfig()
 
-
-        main_tabhost.setup()
-        val tabIconHelper = TabIconHelper(main_tabhost, this)
-        if (CheckRootStatus.lastCheckResult && krScriptConfig.allowHomePage) {
-            tabIconHelper.newTabSpec(getString(R.string.tab_home), getDrawable(R.drawable.tab_home)!!, R.id.main_tabhost_cpu)
-        } else {
-            main_tabhost_cpu.visibility = View.GONE
-        }
-        main_tabhost.setOnTabChangedListener {
-            tabIconHelper.updateHighlight()
-        }
-
-
-    private fun showAgreementDialog() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.agreement_title)
-            .setMessage(R.string.agreement_message)
-            .setPositiveButton(R.string.agree) { _, _ ->
-                setAgreementAccepted(true)
-                initializeAfterAgreement()
-            }
-            .setNegativeButton(R.string.cancel) { _, _ ->
-                finish()
-            }
-            .setCancelable(false)
-            .show()
-    }
-
-    private fun isAgreementAccepted(): Boolean {
-        return sharedPreferences.getBoolean(AGREEMENT_ACCEPTED_KEY, false)
-    }
-
-    private fun setAgreementAccepted(accepted: Boolean) {
-        sharedPreferences.edit().putBoolean(AGREEMENT_ACCEPTED_KEY, accepted).apply()
-    }
-
-    private fun initializeAfterAgreement() {
-        // 其他初始化代码...
-        Update().checkUpdate(this)
-
-        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        setTitle(R.string.app_name)
-
-        krScriptConfig = KrScriptConfig()
 
         main_tabhost.setup()
         val tabIconHelper = TabIconHelper(main_tabhost, this)
@@ -172,8 +136,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }).start()
-    }
-}
 
         if (CheckRootStatus.lastCheckResult && krScriptConfig.allowHomePage) {
             val home = FragmentHome()
