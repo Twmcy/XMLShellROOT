@@ -40,13 +40,9 @@ import com.projectkr.shell.Update
 import com.projectkr.shell.permissions.CheckRootStatus
 import com.projectkr.shell.ui.TabIconHelper
 import kotlinx.android.synthetic.main.activity_main.*
-import gjzs.online.permissions.CheckRootStatus as OnlineCheckRootStatus
-import gjzs.online.ui.TabIconHelper as OnlineTabIconHelper
+import com.projectkr.shell.permissions.CheckRootStatus as OnlineCheckRootStatus
+import com.projectkr.shell.ui.TabIconHelper as OnlineTabIconHelper
 import net.khirr.android.privacypolicy.PrivacyPolicyDialog
-import com.wearos.tools.FloatMonitor as WearOSFloatMonitor
-import com.wearos.tools.Update as WearOSUpdate
-import com.wearos.tools.permissions.CheckRootStatus as WearOSCheckRootStatus
-import com.wearos.tools.ui.TabIconHelper as WearOSTabIconHelper
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
