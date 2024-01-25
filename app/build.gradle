@@ -78,7 +78,8 @@ dependencies {
     implementation 'com.github.megatronking.stringfog:xor:3.0.0'
     implementation 'com.drakeet.about:about:2.5.1'
     implementation 'com.drakeet.multitype:multitype:4.3.0'
-        implementation 'net.khirr.android.privacypolicy:privacypolicydialog:1.0.0'
+    implementation 'net.khirr.android.privacypolicy:privacypolicydialog:latest.integration'
+
 }
 repositories {
     mavenCentral()
