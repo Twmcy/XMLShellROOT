@@ -8,7 +8,6 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
-import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
@@ -20,7 +19,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+，
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -44,18 +43,36 @@ import kotlinx.android.synthetic.main.activity_main.*
 import com.projectkr.shell.permissions.CheckRootStatus as OnlineCheckRootStatus
 import com.projectkr.shell.ui.TabIconHelper as OnlineTabIconHelper
 import net.khirr.android.privacypolicy.PrivacyPolicyDialog
+import android.content.Context
+import androidx.core.content.ContextCompat
+import com.projectkr.shell.R
+import android.content.DialogInterface
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
     private var handler = Handler()
     private var krScriptConfig = KrScriptConfig()
 
-    private fun checkPermission(permission: String): Boolean = PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
+    private lateinit var sharedPreferences: SharedPreferences
+
+    private val AGREEMENT_ACCEPTED_KEY = "agreement_accepted"
+
+    private fun checkPermission(permission: String): Boolean =
+        PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ThemeModeState.switchTheme(this)
         setContentView(R.layout.activity_main)
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        
+        if (!isAgreementAccepted()) {
+            showAgreementDialog()
+        } else {
+            initializeAfterAgreement()
+        }
+      
     // 因为，所以，还是所以，有些小白不会写也不会编译，可以在软件中加入，把//去了就可以用了，把SHA1转换base64
         //val appcenterStatus = AppCenterStatus(this)
       //  val signCode = String(Base64.decode("你的base64签名))
@@ -67,21 +84,57 @@ class MainActivity : AppCompatActivity() {
           //  Log.d("AppCenter", "AppCenter is disabled")
    //     }
 
-        dialog.title = getString(R.string.termsOfServiceTitle)
-        dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
-        dialog.addPoliceLine(getString(R.string.PoliceLine1))
-        dialog.addPoliceLine(getString(R.string.PoliceLine2))
-        dialog.cancelText = getString(R.string.dialog_cancelText)
-        dialog.acceptText = getString(R.string.dialog_acceptText)
-        dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
-        dialog.europeOnly = false
-        dialog.show()
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         setTitle(R.string.app_name)
 
         krScriptConfig = KrScriptConfig()
 
+
+        main_tabhost.setup()
+        val tabIconHelper = TabIconHelper(main_tabhost, this)
+        if (CheckRootStatus.lastCheckResult && krScriptConfig.allowHomePage) {
+            tabIconHelper.newTabSpec(getString(R.string.tab_home), getDrawable(R.drawable.tab_home)!!, R.id.main_tabhost_cpu)
+        } else {
+            main_tabhost_cpu.visibility = View.GONE
+        }
+        main_tabhost.setOnTabChangedListener {
+            tabIconHelper.updateHighlight()
+        }
+
+
+    private fun showAgreementDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.agreement_title)
+            .setMessage(R.string.agreement_message)
+            .setPositiveButton(R.string.agree) { _, _ ->
+                setAgreementAccepted(true)
+                initializeAfterAgreement()
+            }
+            .setNegativeButton(R.string.cancel) { _, _ ->
+                finish()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun isAgreementAccepted(): Boolean {
+        return sharedPreferences.getBoolean(AGREEMENT_ACCEPTED_KEY, false)
+    }
+
+    private fun setAgreementAccepted(accepted: Boolean) {
+        sharedPreferences.edit().putBoolean(AGREEMENT_ACCEPTED_KEY, accepted).apply()
+    }
+
+    private fun initializeAfterAgreement() {
+        // 其他初始化代码...
+        Update().checkUpdate(this)
+
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        setTitle(R.string.app_name)
+
+        krScriptConfig = KrScriptConfig()
 
         main_tabhost.setup()
         val tabIconHelper = TabIconHelper(main_tabhost, this)
@@ -119,6 +172,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }).start()
+    }
+}
 
         if (CheckRootStatus.lastCheckResult && krScriptConfig.allowHomePage) {
             val home = FragmentHome()
