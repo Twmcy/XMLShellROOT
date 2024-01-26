@@ -107,39 +107,54 @@ class SplashActivity : Activity() {
      * 检查权限 主要是文件读写权限
      */
     private fun checkFileWrite(next: Runnable) {
-        Thread(Runnable {
-            CheckRootStatus.grantPermission(this)
-            if (!(checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE) && checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    ActivityCompat.requestPermissions(
-                            this@SplashActivity,
-                            arrayOf(
-                                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                    Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                                    Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-                                    Manifest.permission.WAKE_LOCK
-                            ),
-                            0x11
-                    )
-                } else {
-                    ActivityCompat.requestPermissions(
-                            this@SplashActivity,
-                            arrayOf(
-                                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                    Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
-                                    Manifest.permission.WAKE_LOCK
-                            ),
-                            0x11
-                    )
-                }
+    Thread(Runnable {
+        CheckRootStatus.grantPermission(this)
+        if (!(checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE) && checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                ActivityCompat.requestPermissions(
+                        this@SplashActivity,
+                        arrayOf(
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                                Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                                Manifest.permission.WAKE_LOCK
+                        ),
+                        0x11
+                )
+            } else {
+                ActivityCompat.requestPermissions(
+                        this@SplashActivity,
+                        arrayOf(
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+                                Manifest.permission.WAKE_LOCK
+                        ),
+                        0x11
+                )
             }
+        } else {
             myHandler.post {
                 next.run()
             }
-        }).start()
+        }
+    }).start()
+}
+
+override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    when (requestCode) {
+        0x11 -> {
+            if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                // All permissions granted, proceed with the next action
+                // 例如：myHandler.post { next.run() }
+            } else {
+                // Permissions not granted, handle accordingly (e.g., show a message, disable functionality)
+            }
+        }
+        // Handle other request codes if needed
     }
+}
 
     private var hasRoot = false
     private var myHandler = Handler()
