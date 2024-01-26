@@ -6,7 +6,7 @@ apply plugin: 'stringfog'
 stringfog {
     implementation 'com.github.megatronking.stringfog.xor.StringFogImpl'
     enable true
-    fogPackages = ['gjzs.online']
+    fogPackages = ['com.projectkr.shell']
     debug false
 }
 
@@ -19,7 +19,7 @@ android {
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 28
         versionCode(Common.getversionCode(rootProject))
-        versionName "1.0.0" + (Common.getGitHeadRefsSuffix(rootProject))
+        versionName "1.1.3" + (Common.getGitHeadRefsSuffix(rootProject))
     }
 
     if (System.getenv("KEYSTORE_PATH") != null) {
@@ -62,7 +62,7 @@ android {
     }
 }
 
-dependencies {
+dependencies {    
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -72,22 +72,14 @@ dependencies {
     implementation project(':common') // 添加依赖模块
     implementation project(':krscript') // 添加依赖模块
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'com.github.khirr:Android-Privacy-Policy:1.0.1'
     implementation 'com.microsoft.appcenter:appcenter-analytics:4.4.3'
     implementation 'com.microsoft.appcenter:appcenter-crashes:4.4.3'
     implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.3'
     implementation 'com.github.megatronking.stringfog:xor:3.0.0'
     implementation 'com.drakeet.about:about:2.5.1'
+    implementation 'com.google.code.gson:gson:2.8.9' // 或者你可以选择最新的版本
     implementation 'com.drakeet.multitype:multitype:4.3.0'
-    
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    implementation 'com.microsoft.appcenter:appcenter-analytics:4.3.1'
-    implementation 'com.microsoft.appcenter:appcenter-crashes:4.3.1'
-    implementation 'com.github.khirr:Android-Privacy-Policy:1.0.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2-native-mt'
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.github.khirr:Android-Privacy-Policy:1.0.1'
 }
 repositories {
     mavenCentral()
