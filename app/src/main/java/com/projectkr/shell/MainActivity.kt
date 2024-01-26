@@ -43,7 +43,7 @@ import android.view.LayoutInflater
 import android.widget.CompoundButton
 import android.provider.Settings
 import net.khirr.android.privacypolicy.PrivacyPolicyDialog
-import com.projectkr.shell/.Update
+import com.projectkr.shell.Update
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
