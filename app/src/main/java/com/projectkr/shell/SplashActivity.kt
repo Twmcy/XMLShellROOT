@@ -20,6 +20,7 @@ import com.projectkr.shell.permissions.CheckRootStatus
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.io.BufferedReader
 import java.io.DataOutputStream
+import android.content.pm.PackageManager
 
 class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
