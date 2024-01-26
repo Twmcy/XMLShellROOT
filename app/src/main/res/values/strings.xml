@@ -3,6 +3,8 @@
     <string name="kr_script_config">kr-script.conf</string>
 
     <!--是否强制获取ROOT-->
+    
+    <string name="app_name">XMLShellROOT</string>
     <bool name="force_root">false</bool>
 
     <string name="btn_exit">退出</string>
