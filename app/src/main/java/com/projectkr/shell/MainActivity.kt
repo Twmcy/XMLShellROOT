@@ -5,21 +5,21 @@ import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.provider.Settings
+import android.util.Base64
+import android.content.SharedPreferences
 import android.util.DisplayMetrics
+import android.content.Context
+import android.net.ConnectivityManager
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
 import android.widget.Toast
-，
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -28,47 +28,62 @@ import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
 import com.omarea.common.shared.FilePathResolver
-import com.omarea.common.ui.DialogHelper
 import com.omarea.common.ui.ProgressBarDialog
 import com.omarea.krscript.config.PageConfigReader
 import com.omarea.krscript.config.PageConfigSh
+import com.projectkr.shell.FloatMonitor
 import com.omarea.krscript.model.*
 import com.omarea.krscript.ui.ActionListFragment
 import com.omarea.krscript.ui.ParamsFileChooserRender
-import com.projectkr.shell.FloatMonitor
-import com.projectkr.shell.Update
-import com.projectkr.shell.permissions.CheckRootStatus
 import com.projectkr.shell.ui.TabIconHelper
 import kotlinx.android.synthetic.main.activity_main.*
-import com.projectkr.shell.permissions.CheckRootStatus as OnlineCheckRootStatus
-import com.projectkr.shell.ui.TabIconHelper as OnlineTabIconHelper
+import com.projectkr.shell.permissions.CheckRootStatus
+import com.omarea.common.ui.DialogHelper
+import android.view.LayoutInflater
+import android.widget.CompoundButton
+import android.provider.Settings
 import net.khirr.android.privacypolicy.PrivacyPolicyDialog
-import android.content.Context
-import androidx.core.content.ContextCompat
-import com.projectkr.shell.R
-import android.content.DialogInterface
-import androidx.appcompat.app.AlertDialog
+import com.projectkr.shell/.Update
 
 class MainActivity : AppCompatActivity() {
     private val progressBarDialog = ProgressBarDialog(this)
     private var handler = Handler()
+    private lateinit var globalSPF: SharedPreferences
     private var krScriptConfig = KrScriptConfig()
-
     private fun checkPermission(permission: String): Boolean = PermissionChecker.checkSelfPermission(this, permission) == PermissionChecker.PERMISSION_GRANTED
-    private var isDialogShown = false
-    override fun onCreate(savedInstanceState: Bundle?) {
-      
-    // 因为，所以，还是所以，有些小白不会写也不会编译，可以在软件中加入，把//去了就可以用了，把SHA1转换base64
-        //val appcenterStatus = AppCenterStatus(this)
-      //  val signCode = String(Base64.decode("你的base64签名))
-       // val signCheck = SignCheck(this, signCode)
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+
+        //val signCode = String(Base64.decode("你的签名的base64，把SHA1转base64", Base64.DEFAULT))
+        //val signCheck = SignCheck(this, signCode)
         Update().checkUpdate(this)
-      //  if (appcenterStatus.getAppCenterStatus() && signCheck.check()) {
-          //  AppCenter.start(application, "可以不用", Analytics::class.java, Crashes::class.java)
-     //   } else {
-          //  Log.d("AppCenter", "AppCenter is disabled")
-   //     }
-           dialog.title = getString(R.string.termsOfServiceTitle)
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+    if (connectivityManager?.activeNetworkInfo != null) {
+        if (connectivityManager.activeNetworkInfo.isConnected) {
+            Toast.makeText(this, "欢迎(无话可说)", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "无网络连接，自己写吧", Toast.LENGTH_SHORT).show()
+        }
+    } else {
+        Toast.makeText(this, "无法获取网络信息，自己写吧", Toast.LENGTH_SHORT).show()
+    }
+    
+        super.onCreate(savedInstanceState)
+        ThemeModeState.switchTheme(this)
+        setContentView(R.layout.activity_main)
+        
+        val dialog = PrivacyPolicyDialog(this, getString(R.string.termsOfServiceUrl), getString(R.string.privacyPolicyUrl))
+        dialog.onClickListener = object : PrivacyPolicyDialog.OnClickListener {
+            override fun onAccept(isFirstTime: Boolean) {
+                Log.e("MainActivity", "Policies accepted")
+            }
+
+            override fun onCancel() {
+                Log.e("MainActivity", "Policies not accepted")
+                finish()
+                 }
+             }
+        dialog.title = getString(R.string.termsOfServiceTitle)
         dialog.termsOfServiceSubtitle = getString(R.string.termsOfServiceSubtitle)
         dialog.addPoliceLine(getString(R.string.PoliceLine1))
         dialog.addPoliceLine(getString(R.string.PoliceLine2))
@@ -77,13 +92,7 @@ class MainActivity : AppCompatActivity() {
         dialog.acceptButtonColor = ContextCompat.getColor(this, R.color.colorAccent)
         dialog.europeOnly = false
         dialog.show()
-        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        setTitle(R.string.app_name)
-
-        krScriptConfig = KrScriptConfig()
-
-
+        
         //supportActionBar!!.elevation = 0f
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
@@ -129,6 +138,7 @@ class MainActivity : AppCompatActivity() {
             }
         }).start()
 
+
         if (CheckRootStatus.lastCheckResult && krScriptConfig.allowHomePage) {
             val home = FragmentHome()
             val fragmentManager = supportFragmentManager
@@ -137,8 +147,9 @@ class MainActivity : AppCompatActivity() {
             transaction.commitAllowingStateLoss()
         }
 
+
         if (!(checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE) && checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE), 111);
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE), 111)
         }
     }
 
@@ -205,6 +216,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+      
             override fun addToFavorites(clickableNode: ClickableNode, addToFavoritesHandler: KrScriptActionHandler.AddToFavoritesHandler) {
                 val page = if (clickableNode is PageNode) {
                     clickableNode
@@ -255,7 +267,7 @@ class MainActivity : AppCompatActivity() {
     private fun chooseFilePath(fileSelectedInterface: ParamsFileChooserRender.FileSelectedInterface): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, getString(R.string.kr_write_external_storage), Toast.LENGTH_LONG).show()
-            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 2);
+            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 2)
             return false
         } else {
             return try {
@@ -263,18 +275,18 @@ class MainActivity : AppCompatActivity() {
                 if (suffix != null && suffix.isNotEmpty()) {
                     chooseFilePath(suffix)
                 } else {
-                    val intent = Intent(Intent.ACTION_GET_CONTENT);
+                    val intent = Intent(Intent.ACTION_GET_CONTENT)
                     val mimeType = fileSelectedInterface.mimeType()
                     if (mimeType != null) {
                         intent.type = mimeType
                     } else {
                         intent.type = "*/*"
                     }
-                    intent.addCategory(Intent.CATEGORY_OPENABLE);
-                    startActivityForResult(intent, ACTION_FILE_PATH_CHOOSER);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE)
+                    startActivityForResult(intent, ACTION_FILE_PATH_CHOOSER)
                 }
                 this.fileSelectedInterface = fileSelectedInterface
-                true;
+                true
             } catch (ex: java.lang.Exception) {
                 false
             }
@@ -328,11 +340,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-           R.id.option_menu_info -> {
+            when (item.itemId) {
+            R.id.option_menu_info -> {
                 val intent = Intent()
                 intent.setClass(this,AboutActivity::class.java)
-                startActivity(intent)
+                startActivity(intent)            
             }
             R.id.option_menu_reboot -> {
                 DialogPower(this).showPowerMenu()
