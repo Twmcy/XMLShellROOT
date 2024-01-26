@@ -46,7 +46,7 @@ jobs:
         name: app-release
         path: ${{ env.APkFileName }}
 
-    - name: Upload Artefact to App Center
+    - name: Upload Artefact to App Center--不用管
       if: steps.build.outputs.status == 'success' && !cancelled()
       uses: wzieba/AppCenter-Github-Action@v1.3.2
       with:
