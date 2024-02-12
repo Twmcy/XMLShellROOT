@@ -46,18 +46,6 @@ jobs:
         name: app-release
         path: ${{ env.APkFileName }}
 
-    - name: Upload Artefact to App Center--不用管
-      if: steps.build.outputs.status == 'success' && !cancelled()
-      uses: wzieba/AppCenter-Github-Action@v1.3.2
-      with:
-        appName: liuran001/gao3-ji1-zhu4-shou3-R
-        token: ${{secrets.APP_CENTER_TOKEN}}
-        group: 'XMLROOT'
-        file: ${{ env.APkFileName }}
-        notifyTesters: true
-        debug: false
-        gitReleaseNotes: true
-
       # https://github.com/yujincheng08/BiliRoaming/blob/019eb71afa1887a461f7603987c822ea3fd67f88/.github/workflows/android.yml#L50
     - name: Post to channel
       if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
