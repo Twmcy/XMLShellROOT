@@ -110,21 +110,22 @@ public abstract class ShellHandlerBase extends Handler {
      * @param msg
      * @param color
      */
-    protected void updateLog(final Object msg, final String color) {
-        if (msg != null) {
-            String msgStr = msg.toString();
-            SpannableString spannableString = new SpannableString(msgStr);
-            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            updateLog(spannableString);
-        }
+// 将以下两个方法中的 ForegroundColorSpan 替换为使用 SpannableString 设置颜色
+      protected void updateLog(final Object msg, final String color) {
+    if (msg != null) {
+        String msgStr = msg.toString();
+        SpannableString spannableString = new SpannableString(msgStr);
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        updateLog(spannableString);
     }
+}
 
-    protected void updateLog(final Object msg, final int color) {
-        if (msg != null) {
-            String msgStr = msg.toString();
-            SpannableString spannableString = new SpannableString(msgStr);
-            spannableString.setSpan(new ForegroundColorSpan(color), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            updateLog(spannableString);
-        }
+     protected void updateLog(final Object msg, final int color) {
+    if (msg != null) {
+        String msgStr = msg.toString();
+        SpannableString spannableString = new SpannableString(msgStr);
+        spannableString.setSpan(new ForegroundColorSpan(color), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        updateLog(spannableString);
     }
+  }
 }
