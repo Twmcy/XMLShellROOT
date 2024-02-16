@@ -91,14 +91,18 @@ public abstract class ShellHandlerBase extends Handler {
             }
         }
     }
+    
+    
+protected void onReader(Object msg) {
+    String coloredText = "<font color='#00cc55'>" + msg.toString() + "</font>";
+    updateLog(coloredText);
+}
 
-    protected void onReader(Object msg) {
-        updateLog(msg, "#00cc55");
-    }
+protected void onWrite(Object msg) {
+    String coloredText = "<font color='#808080'>" + msg.toString() + "</font>";
+    updateLog(coloredText);
+}
 
-    protected void onWrite(Object msg) {
-        updateLog(msg, "#808080");
-    }
 
     protected void onError(Object msg) {
         updateLog(msg, "#ff0000");
@@ -110,22 +114,28 @@ public abstract class ShellHandlerBase extends Handler {
      * @param msg
      * @param color
      */
-// 将以下两个方法中的 ForegroundColorSpan 替换为使用 SpannableString 设置颜色
-      protected void updateLog(final Object msg, final String color) {
-    if (msg != null) {
-        String msgStr = msg.toString();
-        SpannableString spannableString = new SpannableString(msgStr);
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        updateLog(spannableString);
+    protected void updateLog(final Object msg, final String color) {
+        if (msg != null) {
+            String msgStr = msg.toString();
+            SpannableString spannableString = new SpannableString(msgStr);
+            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            updateLog(spannableString);
+        }
+    }
+
+protected void updateLog(final CharSequence coloredText) {
+    if (coloredText != null) {
+        Spanned spannedText = Html.fromHtml(coloredText.toString(), Html.FROM_HTML_MODE_LEGACY);
+        // 使用 spannedText 进行后续的操作，例如显示在 TextView 中
     }
 }
 
-     protected void updateLog(final Object msg, final int color) {
-    if (msg != null) {
-        String msgStr = msg.toString();
-        SpannableString spannableString = new SpannableString(msgStr);
-        spannableString.setSpan(new ForegroundColorSpan(color), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        updateLog(spannableString);
+    protected void updateLog(final Object msg, final int color) {
+        if (msg != null) {
+            String msgStr = msg.toString();
+            SpannableString spannableString = new SpannableString(msgStr);
+            spannableString.setSpan(new ForegroundColorSpan(color), 0, msgStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            updateLog(spannableString);
+        }
     }
-  }
 }
