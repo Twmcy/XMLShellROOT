@@ -7,21 +7,23 @@ import com.omarea.common.shell.KeepShellPublic
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class DialogPower(var context: Activity) {
-    private fun showConfirmationDialog(cmdResId: Int, onConfirmed: () -> Unit) {
-        val cmd = context.getString(cmdResId)
-        val confirmationMessage = "Are you sure you want to execute: $cmd ?"
+private fun showConfirmationDialog(cmdResId: Int, onConfirmed: () -> Unit) {
+    val cmd = context.getString(cmdResId)
+    val confirmationMessage = "Are you sure you want to execute: $cmd ?"
 
-        MaterialAlertDialogBuilder(context)
-            .setTitle("Confirmation")
-            .setMessage(confirmationMessage)
-            .setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+    MaterialAlertDialogBuilder(context)
+        .setTitle("Confirmation")
+        .setMessage(confirmationMessage)
+        .setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+            Thread {
                 onConfirmed()
-            }
-            .setNegativeButton("Cancel") { dialog: DialogInterface, _: Int ->
-                dialog.dismiss()
-            }
-            .show()
-    }
+            }.start()
+        }
+        .setNegativeButton("Cancel") { dialog: DialogInterface, _: Int ->
+            dialog.dismiss()
+        }
+        .show()
+}
 
     fun showPowerMenu() {
         val view = context.layoutInflater.inflate(R.layout.dialog_power_operation, null)
