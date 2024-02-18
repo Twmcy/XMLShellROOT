@@ -49,14 +49,26 @@ object KeepShellPublic {
         }
     }
 
- fun doCmdSync(commands: Any): Boolean {
-    val cmdString = when (commands) {
-        is String -> commands
-        is List<*> -> commands.joinToString(separator = "\n\n")
-        else -> throw IllegalArgumentException("Unsupported command type")
+    // 执行脚本
+fun doCmdSync(commands: List<String>): Boolean {
+    return doCmdSync(commands, enableANSI = false)
+}
+
+// 执行脚本
+fun doCmdSync(cmd: String): String {
+    return doCmdSync(cmd, enableANSI = false)
+}
+
+// 执行脚本
+fun doCmdSync(commands: List<String>, enableANSI: Boolean = false): Boolean {
+    val stringBuilder = StringBuilder()
+
+    for (cmd in commands) {
+        stringBuilder.append(cmd)
+        stringBuilder.append("\n\n")
     }
 
-    return doCmdSync(cmdString) != "error"
+    return doCmdSync(stringBuilder.toString(), enableANSI) != "error"
 }
 
 // 执行脚本
