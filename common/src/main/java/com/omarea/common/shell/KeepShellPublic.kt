@@ -49,21 +49,23 @@ object KeepShellPublic {
         }
     }
 
-    fun doCmdSync(commands: List<String>): Boolean {
-        val stringBuilder = StringBuilder()
+    // 执行脚本
+fun doCmdSync(commands: List<String>): Boolean {
+    val stringBuilder = StringBuilder()
 
-        for (cmd in commands) {
-            stringBuilder.append(cmd)
-            stringBuilder.append("\n\n")
-        }
-
-        return doCmdSync(stringBuilder.toString()) != "error"
+    for (cmd in commands) {
+        stringBuilder.append(cmd)
+        stringBuilder.append("\n\n")
     }
 
-    //执行脚本
-    fun doCmdSync(cmd: String): String {
-        return getDefaultInstance().doCmdSync(cmd)
-    }
+    return doCmdSync(stringBuilder.toString()) != "error"
+}
+
+// 执行脚本
+fun doCmdSync(cmd: String, enableANSI: Boolean = false): String {
+    val fullCmd = if (enableANSI) "\u001B[0;1m$cmd\u001B[0m" else cmd
+    return getDefaultInstance().doCmdSync(fullCmd)
+}
 
     //执行脚本
     fun checkRoot(): Boolean {
